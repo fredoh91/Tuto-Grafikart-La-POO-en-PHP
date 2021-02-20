@@ -8,13 +8,13 @@
     <!-- Bootstrap CSS -->
 <!--     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <title>Hello, world!</title>
+    <title><?= App\App::getTitle(); ?></title>
   </head>
   <body>
   	<nav class="navbar navbar-inverse navbar-fixed-top">
   		<div class="container">
   			<div class="navbar-header">
-				<a class="navbar-brand" href="../public/index.php">Project name</a>  				
+				<a class="navbar-brand" href="../public/index.php">Accueil</a>  				
   			</div>
   		</div>
   	</nav>
