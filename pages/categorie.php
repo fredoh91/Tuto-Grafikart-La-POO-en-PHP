@@ -1,9 +1,12 @@
 <?php
-
+use \App\App;
 use \App\Table\Categorie;
 use \App\Table\Article;
 
 $categorie = Categorie::find($_GET['id']);
+if($categorie === false){
+	App::notFound();
+}
 $article = Article::lastByCategory($_GET['id']);
 $categories = Categorie::all();
 ?>
@@ -29,7 +32,7 @@ $categories = Categorie::all();
 	</div>
 	<div class="col-sm-4">
 		<ul>
-			<?php foreach(App\Table\Categorie::all() as $categorie): ?>
+			<?php foreach(Categorie::all() as $categorie): ?>
 				<li>
 					<a href="<?= $categorie->getURL() ?>">
 						<?= $categorie->titre; ?>	
