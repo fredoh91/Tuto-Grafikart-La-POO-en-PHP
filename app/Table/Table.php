@@ -2,48 +2,16 @@
 
 namespace App\Table;
 
-use App\App;
+class Table 
+{
+	protected $table;
 
-class Table{
-
-	protected static $table;
-
-	// private static  function getTable()
-	// {
-	// 	if (static::$table === null) {
-	// 		$class_name = explode('\\',get_called_class());
-	// 		static::$table = strtolower(end($class_name)) . 's';
-	// 	}
-	// 	return static::$table;
-	// }
-
-	public static function find($id){
-        return static::query("
-            SELECT * 
-            FROM " . static::$table . " 
-            WHERE id = ?
-        ", [$id], true);
-	}
-
-	public static function query($statement, $attributes = null, $one = false) {
-		if ($attributes) {
-		    return App::getDb()->prepare($statement, $attributes, get_called_class(), $one);
-		} else {
-		    return App::getDb()->query($statement, get_called_class(), $one);
+	function __construct()
+	{
+		if (is_null($this->table)) {
+			$parts = explode('\\', get_class($this));
+			$class_name = end($parts); 
+			$this->table = strtolower(str_replace('Table', '', $class_name));
 		}
-
 	}
-
-	public function __get($key){
-	    $method = 'get' . ucfirst($key);
-	    $this->$key = $this->$methode();
-	    return $this->$key;
-	}
-
-	public static function all(){
-        return App::getDb()->query("
-            SELECT * 
-            FROM " . static::$table . " 
-        ", get_called_class());
-    }
 }

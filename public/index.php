@@ -2,18 +2,17 @@
 
 require '../vendor/autoload.php';
 
+$app = App\App::getInstance();
+$post = $app->getTable('posts');
+$user = $app->getTable('users');
 
-$app = \App\App::getInstance();
-$app->title = 'testtttttttttttttt';
+// $post = App\App::getTable('posts');
+// $user = App\App::getTable('users');
+// $category = App\App::getTable('categories');
 
-$app2 = \App\App::getInstance();
-echo $app2->title;
-
-$config = App\Config::getInstance();
-
-var_dump($config->get('db_user'));
-
-
+var_dump($post);
+var_dump($user);
+// var_dump($category);
 
 // if(isset($_GET['p'])){
 // 	$p=$_GET['p'];
