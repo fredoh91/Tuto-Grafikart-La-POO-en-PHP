@@ -2,6 +2,8 @@
 
 namespace App;
 
+// use App\Database;
+
 class App{
 
     public $title = 'TP POO';
@@ -20,14 +22,14 @@ class App{
     public function getTable($name)
     {
         $class_name = 'App\\Table\\' . ucfirst($name) . 'Table';
-        return new $class_name();
+        return new $class_name($this->getDb());
     }
 
     public function getDb() 
     {
         if(is_null($this->db_instance)) {
             $config = Config::getInstance();
-            $this->db_instance = new Database($config->get('db_name'),
+            $this->db_instance = new \App\Database\MysqlDatabase($config->get('db_name'),
                                                 $config->get('db_user'),
                                                 $config->get('db_pass'),
                                                 $config->get('db_host'));            
