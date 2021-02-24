@@ -17,7 +17,10 @@ class MysqlDatabase extends Database{
 		$this->db_pass=$db_pass;
 		$this->db_host=$db_host;
 	}
-    // méthode pour générer un PDO, pas au moment du constructeur pour éviter de connecter la BDD si la classe est instanciée mais sans utiliser PDO 
+	
+	/**
+	 * méthode pour générer un PDO, pas au moment du constructeur pour éviter de connecter la BDD si la classe est instanciée mais sans utiliser PDO 
+	 */
     private function getPDO(){
 		if($this->pdo === null) {
 			$pdo = new PDO ('mysql:dbname=blog;host=localhost','root','root');
@@ -26,11 +29,7 @@ class MysqlDatabase extends Database{
 		}
 		return $this->pdo;
 	}
- 	// public function query($statement){
-	// 	$req = $this->getPDO()->query($statement);
-	// 	$datas = $req->fetchAll(PDO::FETCH_OBJ);
-	// 	return $datas;
-	// }
+
 	public function query($statement, $class_name = null, $one = false){
         $req = $this->getPDO()->query($statement);
 

@@ -21,10 +21,8 @@ class App{
 
     public static function load(){
         require '../vendor/autoload.php';
-        
     }
 
-    // public static function getTable($name)
     public function getTable($name)
     {
         $class_name = 'App\\Table\\' . ucfirst($name) . 'Table';
@@ -41,7 +39,6 @@ class App{
                                                 $config->get('db_host'));            
         }
         return $this->db_instance;
-    
     }
 
 }

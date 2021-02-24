@@ -25,9 +25,3 @@
   	</div>
   </body>
 </html>
-
-
-<!-- // <?php
-// $db = new App\Database(‘blog’);
-// $datas = $db->query(‘SELECT * FROM articles’);
-// var_dump($datas[0]->titre);
