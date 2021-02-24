@@ -1,8 +1,9 @@
 <?php
 
-namespace App;
+//namespace App;
 
-// use App\Database;
+use Core\Config;
+use Core\Database\MysqlDatabase;
 
 class App{
 
@@ -18,6 +19,11 @@ class App{
         return self::$_instance;
     }
 
+    public static function load(){
+        require '../vendor/autoload.php';
+        
+    }
+
     // public static function getTable($name)
     public function getTable($name)
     {
@@ -28,8 +34,8 @@ class App{
     public function getDb() 
     {
         if(is_null($this->db_instance)) {
-            $config = Config::getInstance();
-            $this->db_instance = new \App\Database\MysqlDatabase($config->get('db_name'),
+            $config = Config::getInstance(ROOT . '/config/config.php');
+            $this->db_instance = new MysqlDatabase($config->get('db_name'),
                                                 $config->get('db_user'),
                                                 $config->get('db_pass'),
                                                 $config->get('db_host'));            

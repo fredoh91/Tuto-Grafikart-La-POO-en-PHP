@@ -2,7 +2,9 @@
 
 namespace App\Table;
 
-class PostsTable extends Table
+use \Core\Table\Table;
+
+class UserTable extends Table
 {
 	
 	// function __construct(argument)

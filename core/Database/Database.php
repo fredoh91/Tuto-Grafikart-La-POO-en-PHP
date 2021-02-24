@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Table;
+namespace Core\Database;
 
-class UsersTable extends Table
+
+class Database 
 {
 	
 	// function __construct(argument)

@@ -2,9 +2,11 @@
 
 namespace App\Table;
 
-class CategoriesTable extends Table
+use \Core\Table\Table;
+
+class CategoryTable extends Table
 {
-	// protected $table = 'catego_lol';
+	protected $table = 'categories';
 	// function __construct(argument)
 	// {
 	// 	# code...
