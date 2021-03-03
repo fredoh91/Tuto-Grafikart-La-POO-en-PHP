@@ -2,6 +2,12 @@
 
 $app = App::getInstance();
 
+
+// $test= $app->getDb();
+// var_dump($app);
+// var_dump($test);
+// die();
+$post = $app->getTable('Post')->find($_GET['id']);
 $post = $app->getTable('Post')->find($_GET['id']);
 
 if ($post === false) {

@@ -1,0 +1,1 @@
+<h1>Administration des posts</h1>
